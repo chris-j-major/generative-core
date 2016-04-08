@@ -1,0 +1,17 @@
+{
+  "name": "generative-core",
+  "version": "0.0.1",
+  "description": "Common componenets for Generative projects.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Chris Major",
+  "license": "MIT",
+  "dependencies": {
+    "random-seed": "^0.3.0"
+  },
+  "devDependencies":{
+    "mocha": "^2.4.5"
+  }
+}
