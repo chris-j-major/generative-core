@@ -8,6 +8,7 @@ function extend(Clz){
   Clz.prototype.range = range;
   Clz.prototype.random = random;
   Clz.prototype.choose = choose;
+  Clz.prototype.pick = pick;
 }
 function prepare(){
   this._pos = 0;
@@ -45,6 +46,19 @@ function random(optPos){
 function choose(options,pos){
   var n = Math.floor(this.range(0,options.length,pos));
   return options[n];
+}
+function pick(count,options,pos){
+  var p = pos || this._pos;
+  var left = options.slice(0);
+  var set = [];
+  while ( (set.length < count) && (left.length > 0) ){
+    var n = Math.floor(this.range(0,left.length,p++));
+    set = set.concat( left.splice(n,1) );
+  }
+  if ( !pos ){
+    this._pos = p;
+  }
+  return set;
 }
 
 module.exports = {
